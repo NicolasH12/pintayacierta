@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CHROMATICA</title>
+    <link rel="shortcut icon" href="img/logo2.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            text-align: center;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .visual-test {
+            display: flex;
+            justify-content: center;
+        }
+        .color-box, .shape-box {
+            width: 100px;
+            height: 100px;
+            margin: 0 10px;
+            border: 1px solid #000;
+            cursor: pointer;
+        }
+        .blurry-text, .blurry-lines, .less-blurry-text, .less-blurry-lines {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .blurry-text, .blurry-lines {
+            color: transparent;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+        .result {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .test-container {
+            padding: 20px;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            background-color: #ffffff;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="login.html">Login</a>
+            <a href="#">Acerca del test</a>
+            <a href="#">Sobre nosotros</a>
+            <a href="#">Servicios</a>
+            <a href="#">Contacto</a>
+        </nav>
+        <section class="textos-header">
+            <h1>CHROMATICA</h1>
+            <h2>TEST VISUAL PARA TU SALUD</h2>
+        </section>
+    </header>
+    <main>
+        <section class="contenedor sobre-nosotros">
+            <h2 class="titulo">Nuestro test</h2>
+            <div class="contenedor-sobre-nosotros">
+                <img src="img/logo.png" alt="" class="imagen-about-us">
+                <div class="contenenido-textos">
+                    <h3><span>1</span>Descripcion del test</h3>
+                    <p>Facilita el acceso a un pequeño test para dar un valor aproximado de su nivel de daltonismo, se
+                        le da una breve recomendacion para que vaya a especialista en ofotamologia.</p>
+                    <h3><span>2</span>¿por que daltonismo?</h3>
+                    <p>Para responder esta pregunta, hay que pensar cuantas personas sufren de esta discapacidad visual
+                        y no lo saben, es por esto que creamos este test para poder averguarlo y tener un valor
+                        aproximado y saber si necesita un tratamiento.</p>
+                </div>
+            </div>
+        </section>
+        <section class="acerca del test">
+            <div class="acerca del test">
+                <h2 class="titulo">acerca del test</h2>
+                <p>Se basa en un juego que hace que el usuario tenga que escoger el color correcto en base a las grandes
+                    o pequeñas diferencias que se vayan presentando entre los colores</p>
+                <div class="galeria-port">
+                    <div class="imagen-port">
+                        <img src="img/icono1.jpg" alt="">
+                        <div class="hover-galeria">
+                            <img src="img/icono 2.png" alt="">
+                            <p>nuestro test</p>
+                        </div>
+                    </div>
+                    <div class="imagen-port">
+                        <img src="img/icono 3.jpg" alt="">
+                        <div class="hover-galeria">
+                            <img src="img/icono 2.png" alt="">
+                            <p>nuestro test</p>
+                        </div>
+                    </div>
+                    <div class="imagen-port">
+                        <img src="img/icono 4.jpeg" alt="">
+                        <div class="hover-galeria">
+                            <img src="img/icono 2.png" alt="">
+                            <p>nuestro test</p>
+                        </div>
+                    </div>
+                    <div class="imagen-port">
+                        <img src="img/icono 5.jpeg" alt="">
+                        <div class="hover-galeria">
+                            <img src="img/icono 2.png" alt="">
+                            <p>nuestro test</p>
+                        </div>
+                    </div>
+                    <div class="imagen-port">
+                        <img src="img/icono 6.jpeg" alt="">
+                        <div class="hover-galeria">
+                            <img src="img/icono 2.png" alt="">
+                            <p>nuestro test</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="test-container">
+            <div class="container">
+                <h1>Test Visual por Niveles</h1>
+                <div id="question-container" class="question"></div>
+                <div id="results" class="result" style="display: none;">
+                    <h2>Resultados</h2>
+                    <p id="result-text"></p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <section class="clientes contenedor">
+                <h2 class="titulo">Quienes somos</h2>
+                <div class="cards">
+                    <img src="img/persona 1.jpg" alt="">
+                    <div class="contenenido-texto-cards">
+                        <h4>Equipo</h4>
+                        <p>Somos un grupo de estudiantes que encontró una oportunidad al observar los diferentes
+                            problemas en el Daltonismo, en un nivel alto o bajo; muchos de los pacientes no saben que
+                            padecen esta condición y a su vez, que nivel o que tipo de daltonismo están presentando, es
+                            por esta razón que decidimos crear ¡CHROMATICA!, un Test Visual para identificar el nivel y
+                            el tipo de daltonismo para aportar a la sociedad de una manera mas fácil, practica,
+                            económica y accesible.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section class="about-service">
+                <div class="clientes contenedor">
+                    <h2 class="titulo">Nuestros servicios</h2>
+                    <div class="servicio-cont">
+                        <div class="servicio-ind">
+                            <img src="img/ilustracion 4.svg" alt="">
+                            <h3>Nuestro test</h3>
+                            <p>Juego con colores cuidadosamente seleccionados para determinar el grado de daltonismo de
+                                una persona</p>
+                        </div>
+                        <div class="servicio-ind">
+                            <img src="img/ilustracion2.svg" alt="">
+                            <h3>Facil y Rapido!!!</h3>
+                            <p>Nuestro Test CRHOMATICA PRESENTA una medida rapida y eficaz para identificar su nivel de
+                                daltonismo en pocos minutos.
+                            </p>
+                        </div>
+                        <div class="servicio-ind">
+                            <img src="img/ilustracion 3.svg" alt="">
+                            <h3>Tratamiento con especialista</h3>
+                            <p>Proporcionamos un servicio pequeñas soluciones y posibles tratamientos al nivel de
+                                daltonismo, ofreciendo nombres de algunas clinicas o doctores especialistas que
+                                brindaran un tratamiento adecuado y oportuno a cada persona</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <div class="contenedor-footer">
+            <div class="content-foo">
+                <h4>Telefono</h4>
+                <p>3114850167</p>
+            </div>
+            <div class="content-foo">
+                <h4>Gmail</h4>
+                <p>atencioncliente@gmail.com</p>
+            </div>
+            <div class="content-foo">
+                <h4>Localizacion</h4>
+                <p>Alamos, Valle, calle 34 #3-57</p>
+            </div>
+        </div>
+        <h2 class="titulo-final">&copy; CHROMATICA</h2>
+    </footer>
+
+    <script>
+        const questions = [
+            {
+                code: `
+                  <h3>Pregunta 1 (Daltonismo)</h3>
+                  <div class="visual-test" id="question1">
+                    <div class="color-box" style="background-color: #FF0000;" onclick="selectAnswer(1, 'correct')"></div>
+                    <div class="color-box" style="background-color: #0000FF;" onclick="selectAnswer(1, 'incorrect')"></div>
+                    <div class="color-box" style="background-color: #0000FF;" onclick="selectAnswer(1, 'incorrect')"></div>
+                    <div class="color-box" style="background-color: #0000FF;" onclick="selectAnswer(1, 'incorrect')"></div>
+                  </div>`
+            },
+            {
+                code: `
+                  <h3>Pregunta 2 (Daltonismo)</h3>
+                  <div class="visual-test" id="question2">
+                    <div class="color-box" style="background-color: #FF5733;" onclick="selectAnswer(2, 'incorrect')"></div>
+                    <div class="color-box" style="background-color: #FCFF33;" onclick="selectAnswer(2, 'correct')"></div>
+                    <div class="color-box" style="background-color: #FF5733;" onclick="selectAnswer(2, 'incorrect')"></div>
+                    <div class="color-box" style="background-color: #FF5733;" onclick="selectAnswer(2, 'incorrect')"></div>
+                  </div>`
+            },
+            {
+                code: `
+                  <h3>Pregunta 3 (Daltonismo)</h3>
+                  <div class="visual-test" id="question3">
+                    <div class="color-box" style="background-color: #3298A3;" onclick="selectAnswer(3, 'correct')"></div>
+                    <div class="color-box" style="background-color: #33FCFF;" onclick="selectAnswer(3, 'incorrect')"></div>
+                    <div class="color-box" style="background-color: #33FCFF;" onclick="selectAnswer(3, 'incorrect')"></div>
+                    <div class="color-box" style="background-color: #33FCFF;" onclick="selectAnswer(3, 'incorrect')"></div>
+                  </div>`
+            },
+            {
+                code: `
+                  <h3>Pregunta 4 (Daltonismo)</h3>
+                  <div class="visual-test" id="question4">
+                    <div class="color-box" style="background-color: #33FF57;" onclick="selectAnswer(4, 'incorrect')"></div>
+                    <div class="color-box" style="background-color: #33FF57;" onclick="selectAnswer(4, 'incorrect')"></div>
+                    <div class="color-box" style="background-color: #2AAE4A;" onclick="selectAnswer(4, 'correct')"></div>
+                    <div class="color-box" style="background-color: #33FF57;" onclick="selectAnswer(4, 'incorrect')"></div>
+                  </div>`
+            },
+            {
+                code: `
+                  <h3>Pregunta 5 (Astigmatismo)</h3>
+                  <p>¿Qué palabra parece más clara?</p>
+                  <div class="visual-test" id="question5">
+                    <div class="less-blurry-lines" onclick="selectAnswer(5, 'correct')">si</div>
+                    <div class="blurry-lines" onclick="selectAnswer(5, 'incorrect')">no</div>
+                  </div>`
+            },
+            {
+                code: `
+                  <h3>Pregunta 6 (Astigmatismo)</h3>
+                  <p>¿Qué letra parece más clara?</p>
+                  <div class="visual-test" id="question6">
+                    <div class="blurry-text" onclick="selectAnswer(6, 'incorrect')">E</div>
+                    <div class="less-blurry-text" onclick="selectAnswer(6, 'correct')">F</div>
+                  </div>`
+            },
+            {
+                code: `
+                  <h3>Pregunta 7 (Miopía)</h3>
+                  <p>¿Qué letra ves?</p>
+                  <div class="visual-test">
+                    <div class="display-letter">A</div>
+                  </div>
+                  <input type="text" id="answer7" placeholder="Escribe la letra que ves">
+                  <button onclick="submitTextAnswer(7, 'A')">Enviar respuesta</button>`
+            },
+            {
+                code: `
+                  <h3>Pregunta 8 (Miopía)</h3>
+                  <p>¿Qué número ves?</p>
+                  <div class="visual-test">
+                    <div class="display-number">8</div>
+                  </div>
+                  <input type="text" id="answer8" placeholder="Escribe el número que ves">
+                  <button onclick="submitTextAnswer(8, '8')">Enviar respuesta</button>`
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        const questionContainer = document.getElementById('question-container');
+        const resultsDiv = document.getElementById('results');
+        const resultText = document.getElementById('result-text');
+        const userAnswers = [];
+
+        function showQuestion(index) {
+            questionContainer.innerHTML = questions[index].code;
+        }
+
+        function selectAnswer(questionNumber, answer) {
+            userAnswers[questionNumber - 1] = answer;
+            nextQuestion();
+        }
+
+        function submitTextAnswer(questionNumber, correctAnswer) {
+            const userInput = document.getElementById(`answer${questionNumber}`).value.trim().toUpperCase();
+            userAnswers[questionNumber - 1] = userInput === correctAnswer.toUpperCase() ? 'correct' : 'incorrect';
+            nextQuestion();
+        }
+
+        function showResults() {
+            let incorrectAnswersCount = 0;
+            let incorrectLevels = [];
+
+            for (let i = 0; i < userAnswers.length; i++) {
+                if (userAnswers[i] !== 'correct') {
+                    incorrectAnswersCount++;
+                    let level = (i < 4) ? 'Daltonismo' : (i < 6) ? 'Astigmatismo' : 'Miopía';
+                    incorrectLevels.push(`Pregunta ${i + 1} (${level})`);
+                }
+            }
+
+            let result = (incorrectAnswersCount === 0) ?
+                'Basado en tus respuestas, no se han detectado problemas visuales.' :
+                `Tienes ${incorrectAnswersCount} respuesta(s) incorrecta(s) en el test. Los errores se encuentran en los siguientes niveles: ${incorrectLevels.join(', ')}. Se han detectado posibles problemas visuales. Te recomendamos consultar a un especialista.`;
+
+            resultText.textContent = result;
+            resultsDiv.style.display = 'block';
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                showQuestion(currentQuestionIndex);
+            } else {
+                showResults();
+            }
+        }
+
+        showQuestion(currentQuestionIndex);
+    </script>
+</body>
+</html>
